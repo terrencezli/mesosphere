@@ -21,9 +21,9 @@ Due to time constraint, the algorithm I was hoping to implement would be to allo
 
 ## Commands
 The commands are
-step
-state
-pickup (floor) (direction)
-exit 
+* step
+* state
+* pickup (floor) (direction)
+* exit 
 
 
