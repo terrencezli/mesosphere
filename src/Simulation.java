@@ -35,19 +35,39 @@ public class Simulation {
                     }
                 }
                 else if (line.equals("step")) {
+                    System.out.println("Elevator moving!");
                     es.step();
                 }
                 else if (line.contains("pickup")){
                     String[] pickup = line.split(" ");
 
-                    System.out.println("Picked up ppl");
+                    System.out.println("Pick up request");
                     es.pickup(Integer.parseInt(pickup[1]), Integer.parseInt(pickup[2]));
-                    es.step();
                 }
             }
         }
         else {
             scan = new Scanner(System.in);
+            String line = scan.nextLine();
+            while(!line.equals("exit")) {
+                if (line.equals("state")) {
+                    List<Elevator> elevators = es.state();
+
+                    for (Elevator e : elevators) {
+                        System.out.println(e.getState().toString());
+                    }
+                }
+                else if (line.equals("step")) {
+                    System.out.println("Elevator moving!");
+                    es.step();
+                }
+                else if (line.contains("pickup")){
+                    String[] pickup = line.split(" ");
+
+                    System.out.println("Pick up request");
+                    es.pickup(Integer.parseInt(pickup[1]), Integer.parseInt(pickup[2]));
+                }
+            }
 
 
         }

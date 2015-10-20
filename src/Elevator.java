@@ -18,11 +18,12 @@ public class Elevator {
         return current;
     }
 
-    public void update() {
+    public void update(int goalFloor) {
 
         // dequeue if arrive on passenger floor method 1
         if (current.goalFloors.contains(current.floorNum)) {
             current.goalFloors.remove(current.floorNum);
+            current.goalFloors.add(goalFloor);
         }
 
         /*
@@ -46,6 +47,7 @@ public class Elevator {
                 current.floorNum++;
             }
         }
+        System.out.println("Elevator on floor " + current.floorNum);
     }
 
     public void addToQueue(int floor) {

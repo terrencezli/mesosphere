@@ -41,12 +41,12 @@ public class ElevatorSystem {
         if (!idle) {
             for (Elevator e : elevators) {
                 if (direction < 0 && e.currentStatus == Status.DOWN && e.current.floorNum > floor) {
-                    System.out.println("Elevator " + e.getState().elevatorID + " picking up " + floor + "on the way down");
+                    System.out.println("Elevator " + e.getState().elevatorID + " picking up " + floor + " on the way down");
                     e.addToQueue(floor);
                     break;
                 }
                 else if (direction > 0 && e.currentStatus == Status.UP && e.current.floorNum < floor) {
-                    System.out.println("Elevator " + e.getState().elevatorID + " picking up " + floor + "on the way up");
+                    System.out.println("Elevator " + e.getState().elevatorID + " picking up " + floor + " on the way up");
                     e.addToQueue(floor);
                     break;
                 }
@@ -56,7 +56,8 @@ public class ElevatorSystem {
 
     // there is a helper function in elevator class
     public void update(int elevatorID) {
-        elevators.get(elevatorID).update();
+        // assume the user has entered floor before being picked up
+        elevators.get(elevatorID).update(10);
     }
 
     public void step() {
